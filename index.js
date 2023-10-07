@@ -1,17 +1,21 @@
+// display variables
+let operandA;
+let operandB;
+let operator;
 
 // math functions
-function add(numA, numB) {
-    return numA + numB;
+function add(localOperandA, localOperandB) {
+    return localOperandA + localOperandB;
 };
 
-function subtract(numA, numB) {
-    return numA - numB;
+function subtract(localOperandA, localOperandB) {
+    return localOperandA - localOperandB;
 };
 
-function multiply(numA, numB) {
-    return numA * numB;
+function multiply(localOperandA, localOperandB) {
+    return localOperandA * localOperandB;
 };
 
-function divide(numA, numB) {
-    return numA / numB;
+function divide(localOperandA, localOperandB) {
+    return localOperandA / localOperandB;
 };
