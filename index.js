@@ -3,6 +3,11 @@ let operandA;
 let operandB;
 let operator;
 
+// operate
+function operate(localOperandA, localOperandB, operatorFunction) {
+    return operatorFunction(localOperandA, localOperandB);
+};
+
 // math functions
 function add(localOperandA, localOperandB) {
     return localOperandA + localOperandB;
