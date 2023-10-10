@@ -97,115 +97,50 @@ const btnDot = document.querySelector('#btnDot');
 
 // event listerners numbers
 btn0.addEventListener('click', e => {
-    if (!toggleOperand && operandA.length < 6) {
-        operandA += '0';
-        display.textContent = operandA;
-    } else if (toggleOperand == true && operandB.length < 6) {
-        operandB += '0';
-        display.textContent = operandB;
-        reverseColorOperantAllBtn();
-    }
+    inputOperant(e);
 });
 btn1.addEventListener('click', e => {
-    if (!toggleOperand && operandA.length < 6) {
-        operandA += '1';
-        display.textContent = operandA;
-    } else if (toggleOperand == true && operandB.length < 6) {
-        operandB += '1';
-        display.textContent = operandB;
-        reverseColorOperantAllBtn();
-    }
+    inputOperant(e);
 });
 btn2.addEventListener('click', e => {
-    if (!toggleOperand && operandA.length < 6) {
-        operandA += '2';
-        display.textContent = operandA;
-    } else if (toggleOperand == true && operandB.length < 6) {
-        operandB += '2';
-        display.textContent = operandB;
-        reverseColorOperantAllBtn();
-    }
+    inputOperant(e);
 });
 btn3.addEventListener('click', e => {
-    if (!toggleOperand && operandA.length < 6) {
-        operandA += '3';
-        display.textContent = operandA;
-    } else if (toggleOperand == true && operandB.length < 6) {
-        operandB += '3';
-        display.textContent = operandB;
-        reverseColorOperantAllBtn();
-    }
+    inputOperant(e);
 });
 btn4.addEventListener('click', e => {
-    if (!toggleOperand && operandA.length < 6) {
-        operandA += '4';
-        display.textContent = operandA;
-    } else if (toggleOperand == true && operandB.length < 6) {
-        operandB += '4';
-        display.textContent = operandB;
-        reverseColorOperantAllBtn();
-    }
+    inputOperant(e);
 });
 btn5.addEventListener('click', e => {
-    if (!toggleOperand && operandA.length < 6) {
-        operandA += '5';
-        display.textContent = operandA;
-    } else if (toggleOperand == true && operandB.length < 6) {
-        operandB += '5';
-        display.textContent = operandB;
-        reverseColorOperantAllBtn();
-    }
+    inputOperant(e);
 });
 btn6.addEventListener('click', e => {
-    if (!toggleOperand && operandA.length < 6) {
-        operandA += '6';
-        display.textContent = operandA;
-    } else if (toggleOperand == true && operandB.length < 6) {
-        operandB += '6';
-        display.textContent = operandB;
-        reverseColorOperantAllBtn();
-    }
+    inputOperant(e);
 });
 btn7.addEventListener('click', e => {
-    if (!toggleOperand && operandA.length < 6) {
-        operandA += '7';
-        display.textContent = operandA;
-    } else if (toggleOperand == true && operandB.length < 6) {
-        operandB += '7';
-        display.textContent = operandB;
-        reverseColorOperantAllBtn();
-    }
+    inputOperant(e);
 });
 btn8.addEventListener('click', e => {
-    if (!toggleOperand && operandA.length < 6) {
-        operandA += '8';
-        display.textContent = operandA;
-    } else if (toggleOperand == true && operandB.length < 6) {
-        operandB += '8';
-        display.textContent = operandB;
-        reverseColorOperantAllBtn();
-    }
+    inputOperant(e);
 });
 btn9.addEventListener('click', e => {
-    if (!toggleOperand && operandA.length < 6) {
-        operandA += '9';
-        display.textContent = operandA;
-    } else if (toggleOperand == true && operandB.length < 6) {
-        operandB += '9';
-        display.textContent = operandB;
-        reverseColorOperantAllBtn();
-    }
+    inputOperant(e);
 });
 btnDot.addEventListener('click', e => {
+    inputOperant(e);
+});
+
+// helper functions
+function inputOperant(e) {
     if (!toggleOperand && operandA.length < 6) {
-        operandA += '.';
+        operandA += e.target.value;
         display.textContent = operandA;
     } else if (toggleOperand == true && operandB.length < 6) {
-        operandB += '.';
+        operandB += e.target.value;
         display.textContent = operandB;
         reverseColorOperantAllBtn();
     }
-});
+};
 
 //DOM display
 const display = document.querySelector('#displayNum');
