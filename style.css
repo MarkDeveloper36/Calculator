@@ -61,15 +61,22 @@ body {
 }
 
 @media (max-width: 455px) {
-    .btn {
-        font-size: 1rem;
-        margin: 0.25rem;
-        width: 3rem;
-        height: 3rem;
+    body {
+        margin: 0;
+        padding: 0;
     }
 
-    #btn0 {
-        width: 45%;
-        border-radius: 3rem / 100%;
+    #calculatorContainer {
+        margin: 0rem;
+        margin-top: 0.5rem;
+        height: 90vh;
+    }
+
+    #displayContainer {
+        height: 17.5rem;
+    }
+
+    #displayNum {
+        margin: 10rem 0.75rem 0rem 1.5rem;
     }
 }
