@@ -82,7 +82,7 @@ btnSubstract.addEventListener('click', e => {
 btnAdd.addEventListener('click', e => {
     inputOperator(e);
 });
-btnEquals.addEventListener('click', e => {
+btnEquals.addEventListener('click', () => {
     if (operandA && operandB && operator) {
         operate(operandA, operandB, operator);
     }
@@ -157,7 +157,7 @@ function reverseColorOperantAllBtn() {
 }
 
 // hover effect
-const btnOperator = document.querySelectorAll('.btnOperator');
+const bperator = document.querySelectorAll('.btnOperator');
 btnOperator.forEach(btnOperator => {
     btnOperator.addEventListener('mouseover', e => {
         e.target.style.backgroundColor = '#ffb752';
@@ -194,3 +194,43 @@ btnGray.forEach(btnGray => {
 });
 
 // keyboardsupport
+document.body.addEventListener('keydown', (e) => {
+    console.log(e);
+    if (e.key === 'Enter') {
+        if (operandA && operandB && operator) {
+            operate(operandA, operandB, operator);
+        }
+    } else if (e.code.startsWith('Digit')){
+        inputOperant(e.key);
+    } else if (e.key === '=') {
+        if (!operator) {
+            operator = '+';
+            select2thOperand = true;
+        } else {
+            operate(operandA, operandB, operator);
+            operator = '+';
+        }
+    } else if (e.key === '-' || e.code === 'Slash') {
+        if (!operator) {
+            operator = e.key;
+            select2thOperand = true;
+        } else {
+            operate(operandA, operandB, operator);
+            operator = e.key;
+        }
+    } else if (e.key === 'Escape') {
+        operandA = '';
+        operandB = '';
+        operator = undefined;
+        select2thOperand = false;
+        display.textContent = 0;
+    } else if (e.key === 'x') {
+        if (!operator) {
+            operator = '*';
+            select2thOperand = true;
+        } else {
+            operate(operandA, operandB, operator);
+            operator = '*';
+        }
+    }
+});
