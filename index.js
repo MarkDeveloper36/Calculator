@@ -157,7 +157,7 @@ function reverseColorOperantAllBtn() {
 }
 
 // hover effect
-const bperator = document.querySelectorAll('.btnOperator');
+const btnOperator = document.querySelectorAll('.btnOperator');
 btnOperator.forEach(btnOperator => {
     btnOperator.addEventListener('mouseover', e => {
         e.target.style.backgroundColor = '#ffb752';
