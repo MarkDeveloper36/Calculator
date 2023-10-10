@@ -57,24 +57,16 @@ btnE.addEventListener('click', e => {
     console.log('test');
 });
 btnDivision.addEventListener('click', e => {
-    changeColorOperantbtn(e);
-    operator = '/';
-    toggleOperand = true;
+    inputOperator(e);
 });
 btnMultiply.addEventListener('click', e => {
-    changeColorOperantbtn(e);
-    operator = '*';
-    toggleOperand = true;
+    inputOperator(e);
 });
 btnSubstract.addEventListener('click', e => {
-    changeColorOperantbtn(e);
-    operator = '-';
-    toggleOperand = true;
+    inputOperator(e);
 });
 btnAdd.addEventListener('click', e => {
-    changeColorOperantbtn(e);
-    operator = '+';
-    toggleOperand = true;
+    inputOperator(e);
 });
 btnEquals.addEventListener('click', e => {
     operate(operandA, operandB, operator);
@@ -141,6 +133,13 @@ function inputOperant(e) {
         reverseColorOperantAllBtn();
     }
 };
+
+function inputOperator(e) {
+    changeColorOperantbtn(e);
+    operator = e.target.value;
+    toggleOperand = true;
+    console.log(operator);
+}
 
 //DOM display
 const display = document.querySelector('#displayNum');
