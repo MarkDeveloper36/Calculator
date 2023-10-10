@@ -8,6 +8,9 @@ let toggleOperand = false;
 function operate(localOperandA, localOperandB, operator) {
     let solution;
     operator === '+' ? solution = add(localOperandA, localOperandB): null;
+    operator === '-' ? solution = subtract(localOperandA, localOperandB): null;
+    operator === '/' ? solution = divide(localOperandA, localOperandB): null;
+    operator === '*' ? solution = multiply(localOperandA, localOperandB): null;
     display.textContent = solution;
 };
 
@@ -54,13 +57,19 @@ btnE.addEventListener('click', e => {
     console.log('test');
 });
 btnDivision.addEventListener('click', e => {
-    console.log('test');
+    changeColorOperantbtn(e);
+    operator = '/';
+    toggleOperand = true;
 });
 btnMultiply.addEventListener('click', e => {
-    console.log('test');
+    changeColorOperantbtn(e);
+    operator = '*';
+    toggleOperand = true;
 });
 btnSubstract.addEventListener('click', e => {
-    console.log('test');
+    changeColorOperantbtn(e);
+    operator = '-';
+    toggleOperand = true;
 });
 btnAdd.addEventListener('click', e => {
     changeColorOperantbtn(e);
