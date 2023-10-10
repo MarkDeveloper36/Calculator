@@ -71,7 +71,9 @@ btnAdd.addEventListener('click', e => {
     inputOperator(e);
 });
 btnEquals.addEventListener('click', e => {
-    operate(operandA, operandB, operator);
+    if (operandA && operandB && operator) {
+        operate(operandA, operandB, operator);
+    }
 });
 
 // Dom selectors numbers
@@ -146,7 +148,11 @@ function inputOperator(e) {
 }
 
 function displayCurrentResult() {
-    display.textContent = Math.round(solution * 100) / 100;
+    if (solution == Infinity) {
+        display.textContent = 'Error';
+    } else {
+        display.textContent = Math.round(solution * 10000) / 10000;
+    }
 }
 
 //DOM display
