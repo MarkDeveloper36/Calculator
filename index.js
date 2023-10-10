@@ -3,7 +3,7 @@ let operandA = '';
 let operandB = '';
 let operator;
 let solution;
-let toggleOperand = false;
+let select2thOperand = false;
 
 // operate
 function operate(localOperandA, localOperandB, operator) {
@@ -11,7 +11,9 @@ function operate(localOperandA, localOperandB, operator) {
     operator === '-' ? solution = subtract(localOperandA, localOperandB): null;
     operator === '/' ? solution = divide(localOperandA, localOperandB): null;
     operator === '*' ? solution = multiply(localOperandA, localOperandB): null;
-    display.textContent = Math.round(solution * 100) / 100;
+    displayCurrentResult();
+    operandA = solution;
+    operandB = '';
 };
 
 // math functions
@@ -46,7 +48,7 @@ btnAC.addEventListener('click', e => {
     operandA = '';
     operandB = '';
     operator = undefined;
-    toggleOperand = false;
+    select2thOperand = false;
     display.textContent = 0;
     reverseColorOperantAllBtn()
 });
@@ -70,8 +72,6 @@ btnAdd.addEventListener('click', e => {
 });
 btnEquals.addEventListener('click', e => {
     operate(operandA, operandB, operator);
-    operandA = solution;
-    operandB = '';
 });
 
 // Dom selectors numbers
@@ -124,10 +124,10 @@ btnDot.addEventListener('click', e => {
 
 // helper functions
 function inputOperant(e) {
-    if (!toggleOperand && operandA.length < 6) {
+    if (!select2thOperand && operandA.length < 6) {
         operandA += e.target.value;
         display.textContent = operandA;
-    } else if (toggleOperand == true && operandB.length < 6) {
+    } else if (select2thOperand == true && operandB.length < 6) {
         operandB += e.target.value;
         display.textContent = operandB;
         reverseColorOperantAllBtn();
@@ -136,9 +136,17 @@ function inputOperant(e) {
 
 function inputOperator(e) {
     changeColorOperantbtn(e);
-    operator = e.target.value;
-    toggleOperand = true;
-    console.log(operator);
+    if (!operator) {
+        operator = e.target.value;
+        select2thOperand = true;
+    } else {
+        operate(operandA, operandB, operator);
+        operator = e.target.value;
+    }
+}
+
+function displayCurrentResult() {
+    display.textContent = Math.round(solution * 100) / 100;
 }
 
 //DOM display
