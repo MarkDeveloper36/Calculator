@@ -11,7 +11,7 @@ function operate(localOperandA, localOperandB, operator) {
     operator === '-' ? solution = subtract(localOperandA, localOperandB): null;
     operator === '/' ? solution = divide(localOperandA, localOperandB): null;
     operator === '*' ? solution = multiply(localOperandA, localOperandB): null;
-    displayCurrentResult();
+    displaySolution();
     operandA = solution;
     operandB = '';
 };
@@ -35,8 +35,8 @@ function divide(localOperandA, localOperandB) {
 
 //DOM selectors operators
 const btnAC = document.querySelector('#btnAC');
-const btnD = document.querySelector('#btnD');
-const btnE = document.querySelector('#btnE');
+const btnToggleAbb = document.querySelector('#btnToggleAbb');
+const btnBackspace = document.querySelector('#btnBackspace');
 const btnDivision = document.querySelector('#btnDivision');
 const btnMultiply = document.querySelector('#btnMultiply');
 const btnSubstract = document.querySelector('#btnSubstract');
@@ -52,11 +52,23 @@ btnAC.addEventListener('click', e => {
     display.textContent = 0;
     reverseColorOperantAllBtn()
 });
-btnD.addEventListener('click', e => {
-    console.log('test');
+btnToggleAbb.addEventListener('click', e => {
+    if (!select2thOperand && operandA) {
+        operandA = -operandA;
+        display.textContent = operandA;
+    } else if (select2thOperand && operandB) {
+        operandB = -operandB;
+        display.textContent = operandB;
+    }
 });
-btnE.addEventListener('click', e => {
-    console.log('test');
+btnBackspace.addEventListener('click', e => {
+    if (!select2thOperand && operandA.length > 0) {
+        operandA = operandA.slice(0, -1);
+        display.textContent = operandA;
+    } else if (select2thOperand && operandB.length > 0) {
+        operandB = operandB.slice(0, -1);
+        display.textContent = operandB;
+    }
 });
 btnDivision.addEventListener('click', e => {
     inputOperator(e);
@@ -121,7 +133,11 @@ btn9.addEventListener('click', e => {
     inputOperant(e);
 });
 btnDot.addEventListener('click', e => {
-    inputOperant(e);
+    if (!select2thOperand && !operandA.includes('.')) {
+        inputOperant(e);
+    } else if (select2thOperand && !operandB.includes('.')) {
+        inputOperant(e);
+    }
 });
 
 // helper functions
@@ -147,7 +163,7 @@ function inputOperator(e) {
     }
 }
 
-function displayCurrentResult() {
+function displaySolution() {
     if (solution == Infinity) {
         display.textContent = 'Error';
     } else {
@@ -174,3 +190,40 @@ function reverseColorOperantAllBtn() {
     btnAdd.style.backgroundColor = '#FF9500';
     btnAdd.style.color = 'white';
 }
+
+// hover effect
+const btnOperator = document.querySelectorAll('.btnOperator');
+btnOperator.forEach(btnOperator => {
+    btnOperator.addEventListener('mouseover', e => {
+        e.target.style.backgroundColor = '#ffb752';
+    })
+});
+btnOperator.forEach(btnOperator => {
+    btnOperator.addEventListener('mouseout', e => {
+        e.target.style.backgroundColor = '#FF9500';
+    })
+});
+
+const btnNum = document.querySelectorAll('.btnNum');
+btnNum.forEach(btnNum => {
+    btnNum.addEventListener('mouseover', e => {
+        e.target.style.backgroundColor = '#a2a2a2';
+    })
+});
+btnNum.forEach(btnNum => {
+    btnNum.addEventListener('mouseout', e => {
+        e.target.style.backgroundColor = '#505050';
+    })
+});
+
+const btnGray = document.querySelectorAll('.btnGray');
+btnGray.forEach(btnGray => {
+    btnGray.addEventListener('mouseover', e => {
+        e.target.style.backgroundColor = '#ffffff';
+    })
+});
+btnGray.forEach(btnGray => {
+    btnGray.addEventListener('mouseout', e => {
+        e.target.style.backgroundColor = '#D4D4D2';
+    })
+});
