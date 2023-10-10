@@ -88,50 +88,15 @@ btnEquals.addEventListener('click', e => {
     }
 });
 
-// Dom selectors numbers
-const btn0 = document.querySelector('#btn0');
-const btn1 = document.querySelector('#btn1');
-const btn2 = document.querySelector('#btn2');
-const btn3 = document.querySelector('#btn3');
-const btn4 = document.querySelector('#btn4');
-const btn5 = document.querySelector('#btn5');
-const btn6 = document.querySelector('#btn6');
-const btn7 = document.querySelector('#btn7');
-const btn8 = document.querySelector('#btn8');
-const btn9 = document.querySelector('#btn9');
-const btnDot = document.querySelector('#btnDot');
-
 // event listerners numbers
-btn0.addEventListener('click', e => {
-    inputOperant(e);
+const allNumBtn = document.querySelectorAll('.btnNum');
+allNumBtn.forEach(numBtn => {
+    numBtn.addEventListener('click', e => {
+        inputOperant(e);
+    });
 });
-btn1.addEventListener('click', e => {
-    inputOperant(e);
-});
-btn2.addEventListener('click', e => {
-    inputOperant(e);
-});
-btn3.addEventListener('click', e => {
-    inputOperant(e);
-});
-btn4.addEventListener('click', e => {
-    inputOperant(e);
-});
-btn5.addEventListener('click', e => {
-    inputOperant(e);
-});
-btn6.addEventListener('click', e => {
-    inputOperant(e);
-});
-btn7.addEventListener('click', e => {
-    inputOperant(e);
-});
-btn8.addEventListener('click', e => {
-    inputOperant(e);
-});
-btn9.addEventListener('click', e => {
-    inputOperant(e);
-});
+
+const btnDot = document.querySelector('#btnDot');
 btnDot.addEventListener('click', e => {
     if (!select2thOperand && !operandA.includes('.')) {
         inputOperant(e);
@@ -204,14 +169,14 @@ btnOperator.forEach(btnOperator => {
     })
 });
 
-const btnNum = document.querySelectorAll('.btnNum');
-btnNum.forEach(btnNum => {
-    btnNum.addEventListener('mouseover', e => {
+const btnDarkGray = document.querySelectorAll('.btnDarkGray');
+btnDarkGray.forEach(btnDarkGray => {
+    btnDarkGray.addEventListener('mouseover', e => {
         e.target.style.backgroundColor = '#a2a2a2';
     })
 });
-btnNum.forEach(btnNum => {
-    btnNum.addEventListener('mouseout', e => {
+btnDarkGray.forEach(btnDarkGray => {
+    btnDarkGray.addEventListener('mouseout', e => {
         e.target.style.backgroundColor = '#505050';
     })
 });
@@ -227,3 +192,5 @@ btnGray.forEach(btnGray => {
         e.target.style.backgroundColor = '#D4D4D2';
     })
 });
+
+// keyboardsupport

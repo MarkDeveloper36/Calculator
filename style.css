@@ -8,20 +8,20 @@ body {
 }
 
 #calculatorContainer {
-    background-color: #1C1C1C;
+    background-color: #222;
     padding: 2rem 1rem;
     border-radius: 1rem;
 }
 
 #displayContainer {
-    background-color: #1C1C1C;
+    background-color: #222;
     display: flex;
     justify-content:flex-end;
     padding: 0.5rem;
 }
 
 #btnContainer {
-    background-color: #1C1C1C;
+    background-color: #222;
 }
 
 .btn {
@@ -34,7 +34,7 @@ body {
     border: none;
 }
 
-.btnNum {
+.btnDarkGray {
     background-color: #505050;
 }
 
