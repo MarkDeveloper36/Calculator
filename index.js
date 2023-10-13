@@ -81,10 +81,10 @@ btnBackspace.addEventListener('click', e => {
         display.textContent = operandB;
     }
 });
-btnDivision.addEventListener('click', e => inputOperator(e));
-btnMultiply.addEventListener('click', e => inputOperator(e));
-btnSubstract.addEventListener('click', e => inputOperator(e));
-btnAdd.addEventListener('click', e => inputOperator(e));
+btnDivision.addEventListener('click', e => inputOperator(e.target));
+btnMultiply.addEventListener('click', e => inputOperator(e.target));
+btnSubstract.addEventListener('click', e => inputOperator(e.target));
+btnAdd.addEventListener('click', e => inputOperator(e.target));
 btnEquals.addEventListener('click', () => {
     if (operandA && operandB && operator) operate(operandA, operandB, operator);
 });
@@ -141,14 +141,14 @@ function inputOperant(e) {
     }
 };
 
-function inputOperator(e) {
-    changeColorOperantbtn(e);
+function inputOperator(button) {
+    changeColorOperatorBtn(button);
     if (!operator) {
-        operator = e.target.value;
+        operator = button.value;
         select2thOperand = true;
     } else {
         operate(operandA, operandB, operator);
-        operator = e.target.value;
+        operator = button.value;
     }
 }
 
@@ -161,9 +161,9 @@ function displaySolution() {
 }
 
 // change color
-function changeColorOperantbtn(e) {
-    e.target.style.backgroundColor = 'white';
-    e.target.style.color = '#FF9500';
+function changeColorOperatorBtn(button) {
+    button.style.backgroundColor = 'white';
+    button.style.color = '#FF9500';
 }
 
 function reverseColorOperantAllBtn() {
