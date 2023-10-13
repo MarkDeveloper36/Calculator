@@ -69,7 +69,7 @@ body {
     #calculatorContainer {
         margin: 0rem;
         margin-top: 0.5rem;
-        height: 90vh;
+        height: auto;
     }
 
     #displayContainer {
@@ -78,5 +78,39 @@ body {
 
     #displayNum {
         margin: 10rem 0.75rem 0rem 1.5rem;
+    }
+
+    .btn {
+        width: 4rem;
+        height: 4rem;
+        margin: 0.3rem;
+    }
+}
+
+@media (max-width: 352) {
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    #calculatorContainer {
+        margin: 0rem;
+        margin-top: 0.5rem;
+        height: auto;
+        padding: 0;
+    }
+
+    #displayContainer {
+        height: 17.5rem;
+    }
+
+    #displayNum {
+        margin: 10rem 0.75rem 0rem 1.5rem;
+    }
+
+    .btn {
+        width: 4rem;
+        height: 4rem;
+        margin: 0.3rem;
     }
 }
