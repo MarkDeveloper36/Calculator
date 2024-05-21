@@ -60,8 +60,9 @@ btnAC.addEventListener('click', e => {
     operator = undefined;
     select2thOperand = false;
     display.textContent = 0;
-    reverseColorOperantAllBtn()
+    resetColorOperantAllBtn()
 });
+
 btnToggleAbb.addEventListener('click', e => {
     if (!select2thOperand && operandA) {
         operandA = -operandA
@@ -72,6 +73,7 @@ btnToggleAbb.addEventListener('click', e => {
         display.textContent = operandB;
     }
 });
+
 btnBackspace.addEventListener('click', e => {
     if (!select2thOperand && operandA.length > 0) {
         operandA = operandA.slice(0, -1);
@@ -81,6 +83,7 @@ btnBackspace.addEventListener('click', e => {
         display.textContent = operandB;
     }
 });
+
 btnDivision.addEventListener('click', e => inputOperator(e.target));
 btnMultiply.addEventListener('click', e => inputOperator(e.target));
 btnSubstract.addEventListener('click', e => inputOperator(e.target));
@@ -137,7 +140,7 @@ function inputOperant(e) {
     } else if (select2thOperand == true && operandB.length < 6) {
         operandB += e.target.value;
         display.textContent = operandB;
-        reverseColorOperantAllBtn();
+        resetColorOperantAllBtn();
     }
 };
 
@@ -166,7 +169,7 @@ function changeColorOperatorBtn(button) {
     button.style.color = '#FF9500';
 }
 
-function reverseColorOperantAllBtn() {
+function resetColorOperantAllBtn() {
     btnDivision.style.backgroundColor = '#FF9500';
     btnDivision.style.color = 'white';
     btnMultiply.style.backgroundColor = '#FF9500';
